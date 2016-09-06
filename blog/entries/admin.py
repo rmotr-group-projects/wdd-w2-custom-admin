@@ -19,14 +19,6 @@ class BaseApplicationAdmin(admin.ModelAdmin):
         return my_urls + urls
 
     def statistics(self, request):
-        # cursor = connection.cursor()
-        # cursor.execute(GENERAL_QUERY)
-        # general_results = dict(list(cursor.fetchall()))
-        # status_results = {}
-        # for status in VALID_STATUSES:
-        #     cursor.execute(PER_STATUS_QUERY, [status])
-        #     res = dict(list(cursor.fetchall()))
-        #     status_results[status] = res
         blogs_entries_count = {}
         for blog in Blog.objects.all():
             blogs_entries_count[blog.name] = Entry.objects.filter(blog=blog).count()
@@ -43,14 +35,12 @@ class BaseApplicationAdmin(admin.ModelAdmin):
 @admin.register(Blog)
 class BlogAdmin(BaseApplicationAdmin):
     list_display = ('id', 'name')
-
     search_fields = ('id', 'name')
 
 
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'email', 'nationality')
-
     search_fields = ('id', 'name')
 
 
@@ -58,11 +48,8 @@ class AuthorAdmin(admin.ModelAdmin):
 class EntryAdmin(admin.ModelAdmin):
     form = select2_modelform(Entry, attrs={'width': '600px'})
     list_display = ('id', 'blog', 'headline', 'number_comments', 'scoring')
-
     list_filter = ('blog',)
-
     search_fields = ('id', 'blog', 'authors')
-
     actions = ['reset_scoring', 'change_blog']
 
     def reset_scoring(self, request, queryset):
@@ -79,7 +66,6 @@ class EntryAdmin(admin.ModelAdmin):
             form = SelectBlogForm(request.POST)
             if form.is_valid():
                 instance = form.cleaned_data['blog']
-                # do stuff
                 for entry in queryset:
                     entry.blog = instance
                     entry.save()
