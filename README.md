@@ -41,3 +41,6 @@ Hint: [This](http://django-easy-select2.readthedocs.io/en/latest/) might be usef
 You'll need to write a custom view to display some stats about the blogging platform. To do that, the easiest way is to create a custom view for the admin. In order to do that, the [get_urls](https://docs.djangoproject.com/en/1.9/ref/contrib/admin/#django.contrib.admin.ModelAdmin.get_urls) method from the ModelAdmin might be handy.
 
 ![image](https://cloud.githubusercontent.com/assets/872296/18291867/d3b7ce98-7460-11e6-9dff-a3a5f07bb0fa.png)
+
+## Extra points
+There's one really cool libray called `djangosuit` that completely changes the look and feel of the django admin. If you wanna get some extra points in this assignment, try to integrate [http://djangosuit.com/](http://djangosuit.com/) to this project.
