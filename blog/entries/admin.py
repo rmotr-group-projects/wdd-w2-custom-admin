@@ -82,5 +82,3 @@ class EntryAdmin(admin.ModelAdmin):
             context={'instances': queryset, 'form': form})
 
     change_blog.short_description = ("Change blog")
-
-
