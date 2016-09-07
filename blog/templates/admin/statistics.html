@@ -1,0 +1,12 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<h1>STATISTICS!</h1>
+
+<p>Number of blogs: {{blogs}}</p>
+<p>Amount of entries per blog:</p>
+<ul>
+    {% for blog in blogs_entries_count %}
+        <li>{{blog.0}}: {{blog.1}} entries</li>
+    {% endfor %}
+</ul>
+{% endblock %}
