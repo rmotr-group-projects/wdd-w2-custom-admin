@@ -11,7 +11,7 @@ from entries.forms import SelectBlogForm
 
 class BaseApplicationAdmin(admin.ModelAdmin):
     def get_urls(self):
-        urls = super().get_urls()
+        urls = super(BaseApplicationAdmin, self).get_urls()
         my_urls = [
             url(r'^statistics/$',
                 self.admin_site.admin_view(self.statistics)),
