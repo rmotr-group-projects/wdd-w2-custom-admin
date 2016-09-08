@@ -17,4 +17,10 @@ DONE:
 7.  Add custom admin view for blog statistics
     i.      Define entries.admin.BlogAdmin.get_urls to add statistics url to url conf
     ii.     Define statistics view in entries.admin.BlogAdmin
-    iii.    Make entries/statistics.html in entries/templates/admin 
+    iii.    Make entries/statistics.html in entries/templates/admin
+8.  Implement django-suit theming
+    i.      Do pip install django-suit, add django-easy-select2 to requirements/dev.txt, and add suit to settings.INSTALLED_APPS _before_ django.contrib.admin
+    ii.     Add django.core.context_processors.request to OPTIONS['context_processors'] in settings.TEMPLATES
+
+TO DO:
+1. Implement django-suit theming
