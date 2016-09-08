@@ -2,7 +2,7 @@
 {% block content %}
 
     <!-- Form goes here -->
-    <form method="POST">
+    <form id="new_blog" method="POST">
       {% csrf_token %}
       <p>Selected entries will belong to:</p>
       {{ form.as_p }}

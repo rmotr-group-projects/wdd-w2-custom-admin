@@ -21,6 +21,5 @@ DONE:
 8.  Implement django-suit theming
     i.      Do pip install django-suit, add django-easy-select2 to requirements/dev.txt, and add suit to settings.INSTALLED_APPS _before_ django.contrib.admin
     ii.     Add django.core.context_processors.request to OPTIONS['context_processors'] in settings.TEMPLATES
-
-TO DO:
-1. Implement django-suit theming
+    iii.    Add a "Log in with Github" link to ~/.virtualenvs/py3-env/lib/python3.4/site-packages/suit/templates/admin, and copy that page to blog/entries/templates/admin/
+    iv.     Add a form id to the change_blog form and reference it in the test (response.forms['new_blog'] instead of response.form), since django-suit adds forms to the page
