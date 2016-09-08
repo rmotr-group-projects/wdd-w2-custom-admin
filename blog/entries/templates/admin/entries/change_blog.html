@@ -1,0 +1,13 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+
+    <!-- Form goes here -->
+    <form method="POST">
+      {% csrf_token %}
+      <p>Selected entries will belong to:</p>
+      {{ form.as_p }}
+        <input type="hidden" name="action" value="change_blog" />
+        <input type="submit" name="apply" value="Apply" />
+    </form>
+
+{% endblock %}

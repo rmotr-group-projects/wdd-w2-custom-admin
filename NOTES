@@ -1,0 +1,20 @@
+venv: py3-env
+superuser username: admin
+superuser password: asdf1234
+
+DONE:
+1.  Set up venv, env variables, etc; run migrations
+2.  Set up superuser
+3.  Add reset_scoring action to entries.admin.EntryAdmin
+4.  Add change_blog action to entries.admin.EntryAdmin
+    i.      Copy contents of ~/.virtualenvs/py3-env/lib/python3.4/site-packages/django/contrib/admin/static/admin/css/ to blog/entries/static/admin/css/
+    ii.     Copy base.html and base_site.html from  ~/.virtualenvs/py3-env/lib/python3.4/site-packages/django/contrib/admin/templates/admin/ to blog/entries/templates/admin/
+    iii.    Make entries/change_blog.html in entries/templates/admin
+5.  Add a "Log in with Github" link to ~/.virtualenvs/py3-env/lib/python3.4/site-packages/django/contrib/admin/templates/admin/login.html
+6.  Set up easy_select2
+    i.      Do pip install django-easy-select2, add django-easy-select2 to requirements/dev.txt, and add easy_select2 to settings.INSTALLED_APPS
+    ii.     Add EntryForm to entries.admin and add form = EntryForm to entries.admin.EntryAdmin
+7.  Add custom admin view for blog statistics
+    i.      Define entries.admin.BlogAdmin.get_urls to add statistics url to url conf
+    ii.     Define statistics view in entries.admin.BlogAdmin
+    iii.    Make entries/statistics.html in entries/templates/admin 

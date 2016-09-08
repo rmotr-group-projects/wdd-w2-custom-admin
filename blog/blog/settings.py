@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'easy_select2',
+    'easy_select2', # Add this back when we get to the select2 part
 
     'entries'
 ]

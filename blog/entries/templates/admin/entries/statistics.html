@@ -1,0 +1,18 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+
+    <!-- Statistics go here -->
+    <h1>STATISTICS!</h1>
+    <p>Number of blogs: {{ blog_count }}</p>
+    <p>
+        Number of entries per blog:
+        <ul>
+            {% for blog in entries_count_by_blog %}
+            <li>
+                {{ blog.name }}: {{ blog.entry__count }} {% if blog.entry__count == 1 %}entry{% else %}entries{% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </p>
+
+{% endblock %}
