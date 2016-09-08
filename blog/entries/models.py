@@ -48,3 +48,6 @@ class Entry(models.Model):
         return self.headline
 
     __str__ = __unicode__
+    
+    class Meta:
+        verbose_name_plural = 'entries'

@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+# from entries import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    # url(r'^change_blog/', views.SelectBlogView.as_view())
 ]

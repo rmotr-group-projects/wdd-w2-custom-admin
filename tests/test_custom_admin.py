@@ -39,7 +39,7 @@ class CustomAdminTestCase(WebTest):
         response = self.app.get('/admin/entries/blog/statistics/', user=self.user)
         self.assertIn('Number of blogs: 2', str(response.html))
         self.assertIn('{}: 2 entries'.format(self.blog_1.name), str(response.html))
-        self.assertIn('{}: 1 entries'.format(self.blog_2.name), str(response.html))
+        self.assertIn('{}: 1 entry'.format(self.blog_2.name), str(response.html))
 
     def test_custom_action_reset_scoring(self):
         """Should reset scoring to zero for given entries"""
@@ -66,7 +66,7 @@ class CustomAdminTestCase(WebTest):
         data = {'action': 'change_blog',
                 '_selected_action': [f.pk for f in fixtures]}
         response = self.app.post(change_url, data, user=self.user)
-        form = response.form
+        form = response.forms['new_blog'] # http://webtest.pythonpaste.org/en/latest/api.html?highlight=multiple%20forms#webtest.response.TestResponse.form
         form['blog'] = "2"
         form.submit('apply')
 
