@@ -66,7 +66,7 @@ class CustomAdminTestCase(WebTest):
         data = {'action': 'change_blog',
                 '_selected_action': [f.pk for f in fixtures]}
         response = self.app.post(change_url, data, user=self.user)
-        form = response.forms['new_blog']
+        form = response.forms['new_blog'] # http://webtest.pythonpaste.org/en/latest/api.html?highlight=multiple%20forms#webtest.response.TestResponse.form
         form['blog'] = "2"
         form.submit('apply')
 
