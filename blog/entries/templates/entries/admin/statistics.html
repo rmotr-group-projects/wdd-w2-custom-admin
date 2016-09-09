@@ -1,0 +1,10 @@
+{% extends 'admin/base_site.html' %}
+
+{% block content %}
+
+  <p>Number of blogs: {{ blogs.count }}</p>
+  {% for blog in blogs %}
+    <p>{{ blog.name }}: {{ blog.entry_set.count }} entries</p>
+  {% endfor %}
+
+{% endblock %}

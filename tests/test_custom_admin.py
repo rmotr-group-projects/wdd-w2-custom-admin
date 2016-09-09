@@ -36,7 +36,7 @@ class CustomAdminTestCase(WebTest):
 
     def test_custom_page_with_statistics(self):
         """Should return a template with statistics about the Blogs"""
-        response = self.app.get('/admin/entries/blog/statistics/', user=self.user)
+        response = self.app.get('/admin/entries/blog/statistics', user=self.user)
         self.assertIn('Number of blogs: 2', str(response.html))
         self.assertIn('{}: 2 entries'.format(self.blog_1.name), str(response.html))
         self.assertIn('{}: 1 entries'.format(self.blog_2.name), str(response.html))
@@ -66,7 +66,7 @@ class CustomAdminTestCase(WebTest):
         data = {'action': 'change_blog',
                 '_selected_action': [f.pk for f in fixtures]}
         response = self.app.post(change_url, data, user=self.user)
-        form = response.form
+        form = response.forms['change_blog_form']
         form['blog'] = "2"
         form.submit('apply')
 

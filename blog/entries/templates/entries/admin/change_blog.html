@@ -1,0 +1,13 @@
+{% extends 'admin/base_site.html' %}
+
+{% block content %}
+
+  <form id="change_blog_form" method="POST">
+    {% csrf_token %}
+    <p>Change entries' blog to:</p>
+    {{ form.as_p }}
+    <input type="hidden" name="action" value="change_blog"/>
+    <input type="submit" name="apply" value="Apply"/>
+  </form>
+
+{% endblock %}
