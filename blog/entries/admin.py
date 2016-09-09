@@ -1,10 +1,13 @@
+from django.conf.urls import url
 from django.contrib import admin
-from django.shortcuts import render, redirect
-from entries.models import Blog, Author, Entry
-from entries.forms import SelectBlogForm
+from django.shortcuts import redirect, render
 from easy_select2 import select2_modelform
 
+from entries.forms import SelectBlogForm
+from entries.models import Author, Blog, Entry
+
 EntryForm = select2_modelform(Entry, attrs={'width': '250px'})
+
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
