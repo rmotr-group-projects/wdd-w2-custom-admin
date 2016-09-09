@@ -27,19 +27,18 @@ class EntryAdmin(admin.ModelAdmin):
         self.message_user(request, '{} entry score(s) reset.'.format(rows_updated))
 
     def change_blog(self, request, queryset):
-        form = SelectBlogForm()
-        from pprint import pprint
         print(request.POST)
-        pprint(request.POST)
-        print('apply' in request.POST)
+        if 'apply' in request.POST:
+            form = SelectBlogForm(request.POST)
+            if form.is_valid():
+                queryset.update(blog=form.cleaned_data['blog'])
+                self.message_user(request, 'Entries\' blogs updated!')
+                return redirect(request.path)
         selected = request.POST.getlist(admin.ACTION_CHECKBOX_NAME)
-        print(selected)
         form = SelectBlogForm(
             initial={
                 '_selected_action': selected
-                                    }
+            }
         )
-
-        # return redirect(request.get_full_path())
         context = {'form': form}
         return render(request, 'entries/admin/change_blog.html', context)
