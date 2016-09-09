@@ -66,7 +66,7 @@ class CustomAdminTestCase(WebTest):
         data = {'action': 'change_blog',
                 '_selected_action': [f.pk for f in fixtures]}
         response = self.app.post(change_url, data, user=self.user)
-        form = response.form
+        form = response.forms['change_blog_form']
         form['blog'] = "2"
         form.submit('apply')
 

@@ -2,7 +2,7 @@
 
 {% block content %}
 
-  <form id="change_blog" method="POST">
+  <form id="change_blog_form" method="POST">
     {% csrf_token %}
     <p>Change entries' blog to:</p>
     {{ form.as_p }}
