@@ -1,6 +1,6 @@
 from django.contrib import admin
 from entries.models import Blog, Author, Entry
-
+from entries.forms import SelectBlogForm
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
@@ -23,3 +23,6 @@ class EntryAdmin(admin.ModelAdmin):
     def reset_scoring(self, request, queryset):
         rows_updated = queryset.update(scoring=0)
         self.message_user(request, '{} entry score(s) reset.'.format(rows_updated))
+
+    def change_blog(self, request, queryset):
+        pass
