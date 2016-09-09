@@ -18,3 +18,8 @@ class AuthorAdmin(admin.ModelAdmin):
 class EntryAdmin(admin.ModelAdmin):
     list_display = ('id', 'blog', 'headline', 'number_comments', 'scoring')
     list_filter = ('blog',)
+    actions = ['reset_scoring']
+
+    def reset_scoring(self, request, queryset):
+        rows_updated = queryset.update(scoring=0)
+        self.message_user(request, '{} entry score(s) reset.'.format(rows_updated))
